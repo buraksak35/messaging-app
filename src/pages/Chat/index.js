@@ -29,13 +29,13 @@ class Chat extends Component {
   }
 
   sendMessage = () => {
-    const {messageInput} = this.props;
+    const {messageInput, loggedInUser} = this.props;
 
     if (messageInput.trim() < 1) {
       return;
     }
 
-    this.props.sendMessage(messageInput);
+    this.props.sendMessage(messageInput, loggedInUser);
   };
 
   leave = async () => {
