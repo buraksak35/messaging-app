@@ -7,7 +7,7 @@ export const MessageBubble = props => {
 
   return (
     <View style={styles.container}>
-      <Text>{message.text}</Text>
+      <Text style={styles.messageText}>{message.text}</Text>
     </View>
   );
 };

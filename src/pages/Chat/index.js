@@ -7,8 +7,13 @@ import {onLeave} from '../../store/actions/auth';
 import {getMessages} from '../../store/actions/chat';
 
 import {styles} from './styles';
-import {Button, Title, Loading} from '../../components';
-import {MessageBubble} from '../../components/MessageBubble';
+import {
+  Button,
+  Title,
+  Loading,
+  MessageBubble,
+  MessageInput,
+} from '../../components';
 
 class Chat extends Component {
   constructor(props) {
@@ -36,20 +41,23 @@ class Chat extends Component {
 
     return (
       <View style={styles.mainContainer}>
-        <View style={styles.topContainer}>
-          <Button
-            label="Leave"
-            onPress={this.leave}
-            extraStyle={styles.leaveButton}
+        <View style={styles.topAndMessagesContainer}>
+          <View style={styles.topContainer}>
+            <Button
+              label="Leave"
+              onPress={this.leave}
+              extraStyle={styles.leaveButton}
+            />
+            <Title label={loggedInUser} extraStyle={{}} />
+          </View>
+          <FlatList
+            data={messages}
+            contentContainerStyle={{marginTop: 20}}
+            renderItem={({item}) => <MessageBubble message={item} />}
+            keyExtractor={item => item.id}
           />
-          <Title label={loggedInUser} extraStyle={{}} />
         </View>
-        <FlatList
-          data={messages}
-          contentContainerStyle={{marginTop: 20}}
-          renderItem={({item}) => <MessageBubble message={item} />}
-          keyExtractor={item => item.id}
-        />
+        <MessageInput />
       </View>
     );
   }

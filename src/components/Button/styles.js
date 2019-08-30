@@ -5,6 +5,8 @@ export const styles = StyleSheet.create({
     backgroundColor: 'blue',
     paddingVertical: 8,
     paddingHorizontal: 16,
+    justifyContent: 'center',
+    alignItems: 'center',
   },
   label: {
     color: '#fff',
