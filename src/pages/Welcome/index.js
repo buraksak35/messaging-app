@@ -18,7 +18,7 @@ class Welcome extends Component {
   componentWillReceiveProps = async nextProps => {
     const {loggedInUser} = nextProps;
     if (loggedInUser) {
-      await saveUserToLocal(loggedInUser);
+      saveUserToLocal(loggedInUser);
       Actions.chat();
     }
   };
