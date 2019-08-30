@@ -4,7 +4,7 @@ const AUTH_STORAGE_KEY = '@AUTH_STORAGE_KEY';
 
 export const saveUserToLocal = async user => {
   try {
-    await AsyncStorage.setItem(AUTH_STORAGE_KEY, user);
+    await AsyncStorage.setItem(AUTH_STORAGE_KEY, JSON.stringify(user));
   } catch (error) {
     console.log(error);
   }
@@ -14,7 +14,7 @@ export const getUserFromLocal = async () => {
   try {
     const value = await AsyncStorage.getItem(AUTH_STORAGE_KEY);
     if (value !== null) {
-      return value;
+      return JSON.parse(value);
     }
   } catch (error) {
     console.log(error);
