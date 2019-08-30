@@ -8,7 +8,7 @@ export const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'center',
-    marginTop: 20,
+    marginTop: 30,
   },
   topAndMessagesContainer: {
     padding: 10,
