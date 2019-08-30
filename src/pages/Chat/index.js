@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
-import {View, Text} from 'react-native';
+import {View, Text, FlatList} from 'react-native';
 import {Actions} from 'react-native-router-flux';
 
 import {onLeave} from '../../store/actions/auth';
@@ -8,6 +8,7 @@ import {getMessages} from '../../store/actions/chat';
 
 import {styles} from './styles';
 import {Button, Title, Loading} from '../../components';
+import {MessageBubble} from '../../components/MessageBubble';
 
 class Chat extends Component {
   constructor(props) {
@@ -25,8 +26,10 @@ class Chat extends Component {
   };
 
   render() {
-    const {loggedInUser, loading} = this.props;
-    console.log(loading);
+    const {loggedInUser, loading, messages} = this.props;
+
+    console.log(messages);
+
     if (loading) {
       return <Loading />;
     }
@@ -41,6 +44,12 @@ class Chat extends Component {
           />
           <Title label={loggedInUser} extraStyle={{}} />
         </View>
+        <FlatList
+          data={messages}
+          contentContainerStyle={{marginTop: 20}}
+          renderItem={({item}) => <MessageBubble message={item} />}
+          keyExtractor={item => item.id}
+        />
       </View>
     );
   }
@@ -48,10 +57,11 @@ class Chat extends Component {
 
 const mapStateToProps = ({authReducer, chatReducer}) => {
   const {loggedInUser} = authReducer;
-  const {loading} = chatReducer;
+  const {loading, messages} = chatReducer;
   return {
     loggedInUser,
     loading,
+    messages,
   };
 };
 
