@@ -7,6 +7,7 @@ import {Button} from '../../components/Button';
 
 import {nameChanged, onLogin} from '../../store/actions/auth';
 import {Actions} from 'react-native-router-flux';
+import {saveUserToLocal} from '../../helpers/auth';
 
 class Welcome extends Component {
   constructor(props) {
@@ -14,8 +15,10 @@ class Welcome extends Component {
     this.state = {};
   }
 
-  componentWillReceiveProps = nextProps => {
-    if (nextProps.loggedInUser) {
+  componentWillReceiveProps = async nextProps => {
+    const {loggedInUser} = nextProps;
+    if (loggedInUser) {
+      await saveUserToLocal(loggedInUser);
       Actions.chat();
     }
   };

@@ -28,8 +28,8 @@ const App = () => {
     <Provider store={store}>
       <RouterWithRedux sceneStyle={{backgroundColor: '#fff'}}>
         <Scene key="root" hideNavBar>
-          <Scene key="splash" component={Splash} />
-          <Scene key="welcome" component={Welcome} initial />
+          <Scene key="splash" component={Splash} initial />
+          <Scene key="welcome" component={Welcome} />
           <Scene key="chat" component={Chat} />
         </Scene>
       </RouterWithRedux>
