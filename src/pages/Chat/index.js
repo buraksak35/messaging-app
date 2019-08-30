@@ -4,8 +4,11 @@ import {View, Text, FlatList} from 'react-native';
 import {Actions} from 'react-native-router-flux';
 
 import {onLeave} from '../../store/actions/auth';
-import {getMessages} from '../../store/actions/chat';
-
+import {
+  getMessages,
+  messageInputChanged,
+  sendMessage,
+} from '../../store/actions/chat';
 import {styles} from './styles';
 import {
   Button,
@@ -25,13 +28,23 @@ class Chat extends Component {
     this.props.getMessages();
   }
 
-  leave = () => {
-    this.props.onLeave();
+  sendMessage = () => {
+    const {messageInput} = this.props;
+
+    if (messageInput.trim() < 1) {
+      return;
+    }
+
+    this.props.sendMessage(messageInput);
+  };
+
+  leave = async () => {
+    await this.props.onLeave();
     Actions.welcome();
   };
 
   render() {
-    const {loggedInUser, loading, messages} = this.props;
+    const {loggedInUser, loading, messages, messageInput} = this.props;
 
     console.log(messages);
 
@@ -48,16 +61,22 @@ class Chat extends Component {
               onPress={this.leave}
               extraStyle={styles.leaveButton}
             />
-            <Title label={loggedInUser} extraStyle={{}} />
+            {loggedInUser && (
+              <Title label={loggedInUser.name} extraStyle={{}} />
+            )}
           </View>
           <FlatList
             data={messages}
-            contentContainerStyle={{marginTop: 20}}
+            style={{marginTop: 20}}
             renderItem={({item}) => <MessageBubble message={item} />}
             keyExtractor={item => item.id}
           />
         </View>
-        <MessageInput />
+        <MessageInput
+          onChangeText={this.props.messageInputChanged}
+          sendMessage={this.sendMessage}
+          messageInput={messageInput}
+        />
       </View>
     );
   }
@@ -65,15 +84,16 @@ class Chat extends Component {
 
 const mapStateToProps = ({authReducer, chatReducer}) => {
   const {loggedInUser} = authReducer;
-  const {loading, messages} = chatReducer;
+  const {loading, messages, messageInput} = chatReducer;
   return {
     loggedInUser,
     loading,
     messages,
+    messageInput,
   };
 };
 
 export default connect(
   mapStateToProps,
-  {onLeave, getMessages},
+  {onLeave, getMessages, messageInputChanged, sendMessage},
 )(Chat);

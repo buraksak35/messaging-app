@@ -6,8 +6,16 @@ import {Button} from '..';
 export const MessageInput = props => {
   return (
     <View style={styles.mainContainer}>
-      <TextInput style={styles.input} />
-      <Button label="Send" extraStyle={styles.sendButton} />
+      <TextInput
+        style={styles.input}
+        value={props.messageInput}
+        onChangeText={text => props.onChangeText(text)}
+      />
+      <Button
+        label="Send"
+        onPress={props.sendMessage}
+        extraStyle={styles.sendButton}
+      />
     </View>
   );
 };

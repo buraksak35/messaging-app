@@ -1,4 +1,5 @@
 import {Alert} from 'react-native';
+import uuid from 'uuid/v1';
 
 import {
   NAME_CHANGED,
@@ -24,18 +25,24 @@ export const onLogin = name => {
       Alert.alert('Name is too short! Min 2 characters');
     }
 
+    const userData = {
+      name,
+      avatarUrl: 'https://randomuser.me/api/portraits/women/65.jpg',
+      id: uuid(),
+    };
+
     dispatch({
       type: LOGIN_SUCCESS,
-      payload: name,
+      payload: userData,
     });
   };
 };
 
-export const onSuccessSession = name => {
+export const onSuccessSession = userData => {
   return dispatch => {
     dispatch({
       type: SESSION_SUCCESS,
-      payload: name,
+      payload: userData,
     });
   };
 };

@@ -8,10 +8,11 @@ export const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'center',
-    marginTop: 10,
+    marginTop: 20,
   },
   topAndMessagesContainer: {
-    padding: 20,
+    padding: 10,
+    flex: 16,
   },
   leaveButton: {
     position: 'absolute',
