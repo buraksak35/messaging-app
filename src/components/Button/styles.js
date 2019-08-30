@@ -2,7 +2,6 @@ import {StyleSheet} from 'react-native';
 
 export const styles = StyleSheet.create({
   container: {
-    width: '60%',
     backgroundColor: 'blue',
     paddingVertical: 8,
     paddingHorizontal: 16,
@@ -10,5 +9,6 @@ export const styles = StyleSheet.create({
   label: {
     color: '#fff',
     textAlign: 'center',
+    fontWeight: '700',
   },
 });
