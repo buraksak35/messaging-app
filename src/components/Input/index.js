@@ -8,6 +8,7 @@ export const Input = props => {
       placeholder={props.placeholder}
       onChangeText={props.onChangeText}
       style={styles.container}
+      value={props.value}
     />
   );
 };

@@ -17,6 +17,7 @@ import Splash from './src/pages/Splash';
 import Welcome from './src/pages/Welcome';
 
 import reducers from './src/store/reducers';
+import Chat from './src/pages/Chat';
 
 const RouterWithRedux = connect()(Router);
 
@@ -29,6 +30,7 @@ const App = () => {
         <Scene key="root" hideNavBar>
           <Scene key="splash" component={Splash} />
           <Scene key="welcome" component={Welcome} initial />
+          <Scene key="chat" component={Chat} />
         </Scene>
       </RouterWithRedux>
     </Provider>

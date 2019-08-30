@@ -1,1 +1,2 @@
-export const GET_LOGGEDIN_USER = 'GET_LOGGEDIN_USER';
+export const NAME_CHANGED = 'NAME_CHANGED';
+export const LOGIN_SUCCESS = 'LOGIN_SUCCESS';
