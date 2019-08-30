@@ -68,7 +68,9 @@ class Chat extends Component {
           <FlatList
             data={messages}
             style={{marginTop: 20}}
-            renderItem={({item}) => <MessageBubble message={item} />}
+            renderItem={({item}) => (
+              <MessageBubble message={item} loggedInUser={loggedInUser} />
+            )}
             keyExtractor={item => item.id}
           />
         </View>
