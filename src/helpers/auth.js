@@ -20,3 +20,11 @@ export const getUserFromLocal = async () => {
     console.log(error);
   }
 };
+
+export const removeUserFromLocal = async () => {
+  try {
+    await AsyncStorage.removeItem(AUTH_STORAGE_KEY);
+  } catch (error) {
+    console.log(error);
+  }
+};

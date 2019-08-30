@@ -1,2 +1,4 @@
 export const NAME_CHANGED = 'NAME_CHANGED';
 export const LOGIN_SUCCESS = 'LOGIN_SUCCESS';
+export const SESSION_SUCCESS = 'SESSION_SUCCESS';
+export const LEAVE_SUCCESS = 'LEAVE_SUCCESS';

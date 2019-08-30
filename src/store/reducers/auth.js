@@ -1,4 +1,9 @@
-import {NAME_CHANGED, LOGIN_SUCCESS} from '../types';
+import {
+  NAME_CHANGED,
+  LOGIN_SUCCESS,
+  SESSION_SUCCESS,
+  LEAVE_SUCCESS,
+} from '../types';
 
 const INITIAL_STATE = {
   name: '',
@@ -11,6 +16,10 @@ export default (state = INITIAL_STATE, action) => {
       return {...state, name: action.payload};
     case LOGIN_SUCCESS:
       return {...state, loggedInUser: action.payload};
+    case SESSION_SUCCESS:
+      return {...state, loggedInUser: action.payload};
+    case LEAVE_SUCCESS:
+      return {...state, loggedInUser: null};
     default:
       return state;
   }
