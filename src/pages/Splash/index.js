@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { View, Text } from 'react-native';
+import { View } from 'react-native';
 import { getUserFromLocal } from '../../helpers/auth';
 import { Actions } from 'react-native-router-flux';
 
@@ -28,7 +28,7 @@ class Splash extends Component {
 
   render() {
     return (
-      <View style={styles.mainContafiner}>
+      <View style={styles.mainContainer}>
         <Title label="Messaging App" extraStyle={{ fontSize: 30 }} />
       </View>
     );
