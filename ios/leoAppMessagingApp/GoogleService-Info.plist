@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CLIENT_ID</key>
+	<string>1007090624367-2bv1qlpkdh9pgav5ks948v3ic23st50o.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.1007090624367-2bv1qlpkdh9pgav5ks948v3ic23st50o</string>
+	<key>API_KEY</key>
+	<string>AIzaSyBpbPEpCoFvv1bFpELkW7fW09Yy3OzOvX0</string>
+	<key>GCM_SENDER_ID</key>
+	<string>1007090624367</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>com.buraksmessagingapp</string>
+	<key>PROJECT_ID</key>
+	<string>message-app-ce920</string>
+	<key>STORAGE_BUCKET</key>
+	<string>message-app-ce920.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:1007090624367:ios:7d591ef036e1c8ef</string>
+	<key>DATABASE_URL</key>
+	<string>https://message-app-ce920.firebaseio.com</string>
+</dict>
+</plist>
