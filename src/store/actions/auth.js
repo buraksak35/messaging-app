@@ -6,8 +6,11 @@ import {
   LOGIN_SUCCESS,
   SESSION_SUCCESS,
   LEAVE_SUCCESS,
+  SELECTED_GENDER_CHANGED,
+  CHANGED_AVATAR,
 } from '../types';
 import { removeUserFromLocal } from '../../helpers/auth';
+import { generateRandomAvatar } from '../../helpers/avatar';
 
 export const nameChanged = name => {
   return dispatch => {
@@ -18,11 +21,11 @@ export const nameChanged = name => {
   };
 };
 
-export const onLogin = name => {
+export const onLogin = (name, selectedAvatar) => {
   return dispatch => {
     const userData = {
       name,
-      avatarUrl: 'https://randomuser.me/api/portraits/women/65.jpg',
+      avatarUrl: selectedAvatar,
       id: uuid(),
     };
 
@@ -48,6 +51,28 @@ export const onLeave = () => {
 
     dispatch({
       type: LEAVE_SUCCESS,
+    });
+  };
+};
+
+export const selectedGenderChanged = gender => {
+  const avatarUrl = generateRandomAvatar(gender);
+
+  return dispatch => {
+    dispatch({
+      type: SELECTED_GENDER_CHANGED,
+      payload: { gender, avatarUrl },
+    });
+  };
+};
+
+export const changeAvatar = gender => {
+  const avatarUrl = generateRandomAvatar(gender);
+
+  return dispatch => {
+    dispatch({
+      type: CHANGED_AVATAR,
+      payload: avatarUrl,
     });
   };
 };
