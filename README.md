@@ -7,4 +7,5 @@
 ### How can you start the app?
 
 - run `npm install`
-- run `npm run launch-ios` and app will run on IOS emulator (iPhone 6), if you want, you can use any simulator with `react-native run-ios --simulator="iPhone X`.
+- run `cd ios && pod install`
+- run `cd .. && npm run launch-ios` and app will run on IOS emulator (iPhone 6), if you want, you can use any simulator with `react-native run-ios --simulator="iPhone X`.
