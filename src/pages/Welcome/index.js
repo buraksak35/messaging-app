@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { View } from 'react-native';
+import { View, Image, Alert, Picker } from 'react-native';
 import { connect } from 'react-redux';
 import { styles } from './styles';
 
@@ -24,6 +24,12 @@ class Welcome extends Component {
 
   onClickLogin = () => {
     const { name } = this.props;
+
+    const isValidName = name.length > 2;
+    if (!isValidName) {
+      return Alert.alert('Name is too short! Min 2 characters');
+    }
+
     this.props.onLogin(name);
   };
 
@@ -35,7 +41,7 @@ class Welcome extends Component {
           extraStyle={{ fontSize: 30, marginBottom: 50 }}
         />
         <Input
-          placeholder="Your Name"
+          placeholder="Your nickame"
           value={this.props.name}
           onChangeText={name => this.props.nameChanged(name)}
         />
