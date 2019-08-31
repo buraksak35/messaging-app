@@ -7,6 +7,7 @@ export const styles = StyleSheet.create({
     paddingHorizontal: 16,
     justifyContent: 'center',
     alignItems: 'center',
+    borderRadius: 10,
   },
   label: {
     color: '#fff',
