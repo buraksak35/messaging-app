@@ -34,7 +34,7 @@ export const messageInputChanged = message => {
 
 export const sendMessage = (messageInput, loggedInUser) => {
   return async dispatch => {
-    const timestamp = Math.floor(Date.now() / 1000);
+    const timestamp = Date.now();
 
     const messageData = {
       text: messageInput,
