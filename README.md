@@ -12,4 +12,4 @@
 
 ### Others
 
-- if you get error like "SDK location not found" in android, you should add .local.properties file to your project and put "sdk.dir = /Users/USERNAME/Library/Android/sdk" to this file.
+- if you get error like "SDK location not found" in android, you should add .local.properties file to your project and put "sdk.dir = /Users/USERNAME/Library/Android/sdk" to this file. source : https://stackoverflow.com/questions/32634352/react-native-android-build-failed-sdk-location-not-found
