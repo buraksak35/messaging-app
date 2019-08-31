@@ -20,11 +20,6 @@ export const nameChanged = name => {
 
 export const onLogin = name => {
   return dispatch => {
-    const isValidName = name.length > 2;
-    if (!isValidName) {
-      Alert.alert('Name is too short! Min 2 characters');
-    }
-
     const userData = {
       name,
       avatarUrl: 'https://randomuser.me/api/portraits/women/65.jpg',
