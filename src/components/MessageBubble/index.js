@@ -30,7 +30,7 @@ export const MessageBubble = props => {
       <View style={styles.nameMessageContainer}>
         <Text
           style={[styles.nameTxt, isOwnerMessage && { alignSelf: 'flex-end' }]}>
-          {message.user.name}:
+          {message.user.name}
         </Text>
         <View style={styles.messageTextContainer}>
           <Text style={styles.messageText}>{message.text}</Text>
