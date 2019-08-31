@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { View, Image, Alert } from 'react-native';
+import { Actions } from 'react-native-router-flux';
 import { connect } from 'react-redux';
-import { styles } from './styles';
 
 import {
   nameChanged,
@@ -9,15 +9,13 @@ import {
   selectedGenderChanged,
   changeAvatar,
 } from '../../store/actions/auth';
-import { Actions } from 'react-native-router-flux';
 import { saveUserToLocal } from '../../helpers/auth';
-import { Title, Input, Button } from '../../components';
-import { GenderPicker } from '../../components/GenderPicker';
+import { Title, Input, Button, GenderPicker } from '../../components';
+import { styles } from './styles';
 
 class Welcome extends Component {
   constructor(props) {
     super(props);
-    this.state = {};
   }
 
   componentWillReceiveProps = async nextProps => {

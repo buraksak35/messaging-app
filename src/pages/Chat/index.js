@@ -1,15 +1,8 @@
 import React, { Component } from 'react';
-import { connect } from 'react-redux';
-import { View, Text, FlatList } from 'react-native';
+import { View, FlatList } from 'react-native';
 import { Actions } from 'react-native-router-flux';
+import { connect } from 'react-redux';
 
-import { onLeave } from '../../store/actions/auth';
-import {
-  getMessages,
-  messageInputChanged,
-  sendMessage,
-} from '../../store/actions/chat';
-import { styles } from './styles';
 import {
   Button,
   Title,
@@ -17,11 +10,17 @@ import {
   MessageBubble,
   MessageInput,
 } from '../../components';
+import { onLeave } from '../../store/actions/auth';
+import {
+  getMessages,
+  messageInputChanged,
+  sendMessage,
+} from '../../store/actions/chat';
+import { styles } from './styles';
 
 class Chat extends Component {
   constructor(props) {
     super(props);
-    this.state = {};
   }
 
   componentDidMount() {
@@ -39,14 +38,12 @@ class Chat extends Component {
   };
 
   leave = async () => {
-    await this.props.onLeave();
+    this.props.onLeave();
     Actions.welcome();
   };
 
   render() {
     const { loggedInUser, loading, messages, messageInput } = this.props;
-
-    console.log(messages);
 
     if (loading) {
       return <Loading />;

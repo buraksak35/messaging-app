@@ -23,6 +23,7 @@ const RouterWithRedux = connect()(Router);
 
 const App = () => {
   const store = createStore(reducers, {}, applyMiddleware(ReduxThunk));
+  console.disableYellowBox = true;
 
   return (
     <Provider store={store}>

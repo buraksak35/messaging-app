@@ -28,4 +28,10 @@ export const styles = StyleSheet.create({
     color: 'gray',
     marginBottom: 5,
   },
+  date: {
+    fontSize: 10,
+    color: '#fff',
+    fontWeight: '400',
+    marginTop: 3,
+  },
 });

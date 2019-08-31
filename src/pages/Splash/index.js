@@ -1,17 +1,16 @@
 import React, { Component } from 'react';
-import { connect } from 'react-redux';
 import { View } from 'react-native';
-import { getUserFromLocal } from '../../helpers/auth';
 import { Actions } from 'react-native-router-flux';
+import { connect } from 'react-redux';
 
+import { Title } from '../../components';
+import { getUserFromLocal } from '../../helpers/auth';
 import { onSuccessSession } from '../../store/actions/auth';
 import { styles } from './styles';
-import { Title } from '../../components';
 
 class Splash extends Component {
   constructor(props) {
     super(props);
-    this.state = {};
   }
 
   componentDidMount() {

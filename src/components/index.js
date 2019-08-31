@@ -1,8 +1,17 @@
 import { Button } from './Button';
+import { GenderPicker } from './GenderPicker';
 import { Input } from './Input';
-import { Title } from './Title';
 import { Loading } from './Loading';
 import { MessageBubble } from './MessageBubble';
 import { MessageInput } from './MessageInput';
+import { Title } from './Title';
 
-export { Button, Input, Title, Loading, MessageBubble, MessageInput };
+export {
+  Button,
+  GenderPicker,
+  Input,
+  Loading,
+  MessageBubble,
+  MessageInput,
+  Title,
+};

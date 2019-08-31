@@ -1,7 +1,8 @@
 import React from 'react';
 import { View, TextInput } from 'react-native';
-import { styles } from './styles';
+
 import { Button } from '..';
+import { styles } from './styles';
 
 export const MessageInput = props => {
   return (

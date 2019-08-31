@@ -5,8 +5,8 @@ const chatDataUrl =
 
 export const getMessagesFromBackend = async () => {
   try {
-    let messages = await fetch(chatDataUrl);
-    let messagesJson = await messages.json();
+    const messages = await fetch(chatDataUrl);
+    const messagesJson = await messages.json();
 
     const sortedMessages = sortBy(messagesJson, [
       function(o) {
