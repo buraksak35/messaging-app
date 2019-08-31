@@ -1,13 +1,12 @@
-import React, {Component} from 'react';
-import {View} from 'react-native';
-import {connect} from 'react-redux';
-import {styles} from './styles';
-import {Input} from '../../components/Input';
-import {Button} from '../../components/Button';
+import React, { Component } from 'react';
+import { View } from 'react-native';
+import { connect } from 'react-redux';
+import { styles } from './styles';
 
-import {nameChanged, onLogin} from '../../store/actions/auth';
-import {Actions} from 'react-native-router-flux';
-import {saveUserToLocal} from '../../helpers/auth';
+import { nameChanged, onLogin } from '../../store/actions/auth';
+import { Actions } from 'react-native-router-flux';
+import { saveUserToLocal } from '../../helpers/auth';
+import { Title, Input, Button } from '../../components';
 
 class Welcome extends Component {
   constructor(props) {
@@ -16,7 +15,7 @@ class Welcome extends Component {
   }
 
   componentWillReceiveProps = async nextProps => {
-    const {loggedInUser} = nextProps;
+    const { loggedInUser } = nextProps;
     if (loggedInUser) {
       saveUserToLocal(loggedInUser);
       Actions.chat();
@@ -24,30 +23,34 @@ class Welcome extends Component {
   };
 
   onClickLogin = () => {
-    const {name} = this.props;
+    const { name } = this.props;
     this.props.onLogin(name);
   };
 
   render() {
     return (
       <View style={styles.mainContainer}>
+        <Title
+          label="Messaging App"
+          extraStyle={{ fontSize: 30, marginBottom: 50 }}
+        />
         <Input
-          placeholder="Name"
+          placeholder="Your Name"
           value={this.props.name}
           onChangeText={name => this.props.nameChanged(name)}
         />
         <Button
           label="Login"
           onPress={this.onClickLogin}
-          extraStyle={{marginTop: 20}}
+          extraStyle={{ marginTop: 20 }}
         />
       </View>
     );
   }
 }
 
-const mapStateToProps = ({authReducer}) => {
-  const {name, loggedInUser} = authReducer;
+const mapStateToProps = ({ authReducer }) => {
+  const { name, loggedInUser } = authReducer;
   return {
     name,
     loggedInUser,
@@ -56,5 +59,5 @@ const mapStateToProps = ({authReducer}) => {
 
 export default connect(
   mapStateToProps,
-  {nameChanged, onLogin},
+  { nameChanged, onLogin },
 )(Welcome);

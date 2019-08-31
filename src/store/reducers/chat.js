@@ -14,11 +14,11 @@ const INITIAL_STATE = {
 export default (state = INITIAL_STATE, action) => {
   switch (action.type) {
     case MESSAGE_REQUEST:
-      return {...state, loading: true};
+      return { ...state, loading: true };
     case MESSAGE_REQUEST_SUCCESS:
-      return {...state, loading: false, messages: action.payload};
+      return { ...state, loading: false, messages: action.payload };
     case MESSAGE_INPUT_CHANGED:
-      return {...state, messageInput: action.payload};
+      return { ...state, messageInput: action.payload };
     case SEND_MESSAGE:
       state.messages.push(action.payload);
       return {

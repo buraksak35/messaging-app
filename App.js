@@ -7,9 +7,9 @@
  */
 
 import React from 'react';
-import {connect, Provider} from 'react-redux';
-import {Router, Scene} from 'react-native-router-flux';
-import {createStore, applyMiddleware} from 'redux';
+import { connect, Provider } from 'react-redux';
+import { Router, Scene } from 'react-native-router-flux';
+import { createStore, applyMiddleware } from 'redux';
 import ReduxThunk from 'redux-thunk';
 
 //Screens
@@ -26,11 +26,11 @@ const App = () => {
 
   return (
     <Provider store={store}>
-      <RouterWithRedux sceneStyle={{backgroundColor: '#fff'}}>
+      <RouterWithRedux sceneStyle={{ backgroundColor: '#fff' }}>
         <Scene key="root" hideNavBar>
           <Scene key="splash" component={Splash} initial />
-          <Scene key="welcome" component={Welcome} />
-          <Scene key="chat" component={Chat} />
+          <Scene key="welcome" component={Welcome} type="reset" />
+          <Scene key="chat" component={Chat} type="reset" />
         </Scene>
       </RouterWithRedux>
     </Provider>

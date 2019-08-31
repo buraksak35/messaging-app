@@ -1,4 +1,4 @@
-import {AsyncStorage} from 'react-native';
+import { AsyncStorage } from 'react-native';
 
 const AUTH_STORAGE_KEY = '@AUTH_STORAGE_KEY';
 

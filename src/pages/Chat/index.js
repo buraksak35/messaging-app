@@ -1,15 +1,15 @@
-import React, {Component} from 'react';
-import {connect} from 'react-redux';
-import {View, Text, FlatList} from 'react-native';
-import {Actions} from 'react-native-router-flux';
+import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import { View, Text, FlatList } from 'react-native';
+import { Actions } from 'react-native-router-flux';
 
-import {onLeave} from '../../store/actions/auth';
+import { onLeave } from '../../store/actions/auth';
 import {
   getMessages,
   messageInputChanged,
   sendMessage,
 } from '../../store/actions/chat';
-import {styles} from './styles';
+import { styles } from './styles';
 import {
   Button,
   Title,
@@ -29,7 +29,7 @@ class Chat extends Component {
   }
 
   sendMessage = () => {
-    const {messageInput, loggedInUser} = this.props;
+    const { messageInput, loggedInUser } = this.props;
 
     if (messageInput.trim() < 1) {
       return;
@@ -44,7 +44,7 @@ class Chat extends Component {
   };
 
   render() {
-    const {loggedInUser, loading, messages, messageInput} = this.props;
+    const { loggedInUser, loading, messages, messageInput } = this.props;
 
     console.log(messages);
 
@@ -67,11 +67,15 @@ class Chat extends Component {
           </View>
           <FlatList
             data={messages}
-            style={{marginTop: 20}}
-            renderItem={({item}) => (
+            style={{ marginTop: 20 }}
+            renderItem={({ item }) => (
               <MessageBubble message={item} loggedInUser={loggedInUser} />
             )}
-            keyExtractor={item => item.id}
+            ref={ref => (this.scrollView = ref)}
+            onContentSizeChange={() => {
+              this.scrollView.scrollToEnd({ animated: true });
+            }}
+            keyExtractor={item => item.id.toString()}
           />
         </View>
         <MessageInput
@@ -84,9 +88,9 @@ class Chat extends Component {
   }
 }
 
-const mapStateToProps = ({authReducer, chatReducer}) => {
-  const {loggedInUser} = authReducer;
-  const {loading, messages, messageInput} = chatReducer;
+const mapStateToProps = ({ authReducer, chatReducer }) => {
+  const { loggedInUser } = authReducer;
+  const { loading, messages, messageInput } = chatReducer;
   return {
     loggedInUser,
     loading,
@@ -97,5 +101,5 @@ const mapStateToProps = ({authReducer, chatReducer}) => {
 
 export default connect(
   mapStateToProps,
-  {onLeave, getMessages, messageInputChanged, sendMessage},
+  { onLeave, getMessages, messageInputChanged, sendMessage },
 )(Chat);

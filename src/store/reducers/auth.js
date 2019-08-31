@@ -13,13 +13,13 @@ const INITIAL_STATE = {
 export default (state = INITIAL_STATE, action) => {
   switch (action.type) {
     case NAME_CHANGED:
-      return {...state, name: action.payload};
+      return { ...state, name: action.payload };
     case LOGIN_SUCCESS:
-      return {...state, loggedInUser: action.payload};
+      return { ...state, loggedInUser: action.payload, name: '' };
     case SESSION_SUCCESS:
-      return {...state, loggedInUser: action.payload};
+      return { ...state, loggedInUser: action.payload };
     case LEAVE_SUCCESS:
-      return {...state, loggedInUser: null};
+      return { ...state, loggedInUser: null };
     default:
       return state;
   }

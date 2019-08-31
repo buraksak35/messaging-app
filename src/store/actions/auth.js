@@ -1,4 +1,4 @@
-import {Alert} from 'react-native';
+import { Alert } from 'react-native';
 import uuid from 'uuid/v1';
 
 import {
@@ -7,7 +7,7 @@ import {
   SESSION_SUCCESS,
   LEAVE_SUCCESS,
 } from '../types';
-import {removeUserFromLocal} from '../../helpers/auth';
+import { removeUserFromLocal } from '../../helpers/auth';
 
 export const nameChanged = name => {
   return dispatch => {

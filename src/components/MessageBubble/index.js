@@ -1,9 +1,13 @@
 import React from 'react';
-import {View, Text, Image} from 'react-native';
-import {styles} from './styles';
+import { View, Text, Image } from 'react-native';
+import { styles } from './styles';
 
 export const MessageBubble = props => {
-  const {message} = props;
+  const { message } = props;
+
+  if (!props.loggedInUser) {
+    return null;
+  }
 
   const isOwnerMessage = message.user.id === props.loggedInUser.id;
 
@@ -11,13 +15,16 @@ export const MessageBubble = props => {
     <View
       style={[
         styles.mainContainer,
-        isOwnerMessage && {alignSelf: 'flex-end', flexDirection: 'row-reverse'},
+        isOwnerMessage && {
+          alignSelf: 'flex-end',
+          flexDirection: 'row-reverse',
+        },
       ]}>
       <Image
-        source={{uri: message.user.avatarUrl}}
+        source={{ uri: message.user.avatarUrl }}
         style={[
           styles.avatar,
-          isOwnerMessage ? {marginLeft: 12} : {marginRight: 12},
+          isOwnerMessage ? { marginLeft: 12 } : { marginRight: 12 },
         ]}
       />
       <View style={styles.messageTextContainer}>

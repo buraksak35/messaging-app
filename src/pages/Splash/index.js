@@ -1,11 +1,12 @@
-import React, {Component} from 'react';
-import {connect} from 'react-redux';
-import {View, Text} from 'react-native';
-import {getUserFromLocal} from '../../helpers/auth';
-import {Actions} from 'react-native-router-flux';
+import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import { View, Text } from 'react-native';
+import { getUserFromLocal } from '../../helpers/auth';
+import { Actions } from 'react-native-router-flux';
 
-import {onSuccessSession} from '../../store/actions/auth';
-import {styles} from './styles';
+import { onSuccessSession } from '../../store/actions/auth';
+import { styles } from './styles';
+import { Title } from '../../components';
 
 class Splash extends Component {
   constructor(props) {
@@ -27,8 +28,8 @@ class Splash extends Component {
 
   render() {
     return (
-      <View style={styles.mainContainer}>
-        <Text> Messaing App </Text>
+      <View style={styles.mainContafiner}>
+        <Title label="Messaging App" extraStyle={{ fontSize: 30 }} />
       </View>
     );
   }
@@ -36,5 +37,5 @@ class Splash extends Component {
 
 export default connect(
   null,
-  {onSuccessSession},
+  { onSuccessSession },
 )(Splash);

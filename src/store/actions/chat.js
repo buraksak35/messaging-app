@@ -6,7 +6,7 @@ import {
   MESSAGE_INPUT_CHANGED,
   SEND_MESSAGE,
 } from '../types';
-import {getMessagesFromBackend} from '../../api/chat';
+import { getMessagesFromBackend } from '../../api/chat';
 
 export const getMessages = () => {
   return async dispatch => {
