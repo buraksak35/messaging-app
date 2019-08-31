@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "1007090624367",
+    "firebase_url": "https://message-app-ce920.firebaseio.com",
+    "project_id": "message-app-ce920",
+    "storage_bucket": "message-app-ce920.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1007090624367:android:312dfa08731e8f81",
+        "android_client_info": {
+          "package_name": "com.leoappmessagingapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1007090624367-g3jmoc6fibguqqmr4gfe3j0omnmqcu84.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCLitT3ZLCtO1o81dXgIYt4C85Wbx7OC0A"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1007090624367-g3jmoc6fibguqqmr4gfe3j0omnmqcu84.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "1007090624367-2bv1qlpkdh9pgav5ks948v3ic23st50o.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.buraksmessagingapp"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
