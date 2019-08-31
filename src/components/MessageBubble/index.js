@@ -15,10 +15,7 @@ export const MessageBubble = props => {
     <View
       style={[
         styles.mainContainer,
-        isOwnerMessage && {
-          alignSelf: 'flex-end',
-          flexDirection: 'row-reverse',
-        },
+        isOwnerMessage && styles.ownerMessageContainer,
       ]}>
       <Image
         source={{ uri: message.user.avatarUrl }}
@@ -27,8 +24,14 @@ export const MessageBubble = props => {
           isOwnerMessage ? { marginLeft: 12 } : { marginRight: 12 },
         ]}
       />
-      <View style={styles.messageTextContainer}>
-        <Text style={styles.messageText}>{message.text}</Text>
+      <View style={styles.nameMessageContainer}>
+        <Text
+          style={[styles.nameTxt, isOwnerMessage && { alignSelf: 'flex-end' }]}>
+          {message.user.name}
+        </Text>
+        <View style={styles.messageTextContainer}>
+          <Text style={styles.messageText}>{message.text}</Text>
+        </View>
       </View>
     </View>
   );
