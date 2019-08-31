@@ -3,7 +3,7 @@ import sortBy from 'lodash.sortby';
 const chatDataUrl =
   'https://jsonblob.com/api/jsonBlob/4f421a10-5c4d-11e9-8840-0b16defc864d';
 
-export const getMessagesFromBackend = async () => {
+export const getMessagesFromJsonblob = async () => {
   try {
     const messages = await fetch(chatDataUrl);
     const messagesJson = await messages.json();

@@ -15,16 +15,35 @@ import {
   getMessages,
   messageInputChanged,
   sendMessage,
+  getMessagesFromFirebase,
 } from '../../store/actions/chat';
 import { styles } from './styles';
+import firebase from 'react-native-firebase';
+
+const messagesRef = firebase.database().ref('messages');
 
 class Chat extends Component {
   constructor(props) {
     super(props);
   }
 
-  componentDidMount() {
-    this.props.getMessages();
+  async componentDidMount() {
+    await this.props.getMessages();
+
+    try {
+      // it trigger when backend get new message.Thanks to this, messages are fetching as real-time
+      messagesRef.on('value', messages => {
+        const messagesAsArray = [];
+
+        messages.forEach(message => {
+          messagesAsArray.push(message.val());
+        });
+
+        this.props.getMessagesFromFirebase(messagesAsArray);
+      });
+    } catch (error) {
+      console.log(error);
+    }
   }
 
   sendMessage = () => {
@@ -98,5 +117,11 @@ const mapStateToProps = ({ authReducer, chatReducer }) => {
 
 export default connect(
   mapStateToProps,
-  { onLeave, getMessages, messageInputChanged, sendMessage },
+  {
+    onLeave,
+    getMessages,
+    messageInputChanged,
+    sendMessage,
+    getMessagesFromFirebase,
+  },
 )(Chat);

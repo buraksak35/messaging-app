@@ -5,8 +5,10 @@ import {
   MESSAGE_REQUEST_SUCCESS,
   MESSAGE_INPUT_CHANGED,
   SEND_MESSAGE,
+  MESSAGE_REQUEST_SUCCESS_FIREBASE,
 } from '../types';
-import { getMessagesFromBackend } from '../../api/chat';
+import { getMessagesFromJsonblob } from '../../api/chat';
+import firebase from 'react-native-firebase';
 
 export const getMessages = () => {
   return async dispatch => {
@@ -14,7 +16,7 @@ export const getMessages = () => {
       type: MESSAGE_REQUEST,
     });
 
-    const messages = await getMessagesFromBackend();
+    const messages = await getMessagesFromJsonblob();
 
     dispatch({
       type: MESSAGE_REQUEST_SUCCESS,
@@ -43,9 +45,22 @@ export const sendMessage = (messageInput, loggedInUser) => {
       user: loggedInUser,
     };
 
+    firebase
+      .database()
+      .ref('messages')
+      .push(messageData);
+
     dispatch({
       type: SEND_MESSAGE,
-      payload: messageData,
+    });
+  };
+};
+
+export const getMessagesFromFirebase = messages => {
+  return async dispatch => {
+    dispatch({
+      type: MESSAGE_REQUEST_SUCCESS_FIREBASE,
+      payload: messages,
     });
   };
 };
