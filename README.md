@@ -2,7 +2,8 @@
 
 ### App Video
 
-- https://streamable.com/76ji9
+- General Flow = https://streamable.com/76ji9
+- Avatar Change + Chat = https://streamable.com/puv2x
 
 ### These can also be added
 
